@@ -3,6 +3,9 @@ pipeline {
 	triggers {
 		pollSCM '* * * * *'
 	}
+	parameters {
+		booleanParam defaultValue: true, description: 'Whether to build production', name: 'buildProduction'
+	}
 	stages {
 		stage ('Parallel') {
 			parallel {
@@ -12,16 +15,19 @@ pipeline {
 					}
 					steps {
 						echo "Build $env.ENV"
-						sleep 5						
+						sleep 5			
 					}
 				}
 				stage ('Build Production') {
 					environment {
 						ENV = "Production"
 					}
+					when { 
+						equals expected: true, actual: params.buildProduction 
+					}
 					steps {
 						echo "Build $env.ENV"
-						sleep 5
+						sleep 5			
 					}
 				}
 			}

@@ -16,7 +16,7 @@ pipeline {
 					steps {
 						echo "Build $env.ENV"
 						echo "BuildNumber: $env.BUILD_NUMBER"
-						sleep 5			
+						sleep 6		
 					}
 				}
 				stage ('Build Production') {

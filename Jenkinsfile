@@ -11,9 +11,23 @@ pipeline {
 			}
 			steps {
 				echo "Build $env.ENV"
-				sleep 10
+				sleep 20
 				echo "Double Build $env.ENV"
-				sleep 10
+				sleep 20
+				echo "triple Build $env.ENV"
+				
+			}
+		}
+		stage('Build Dev 2') {
+			agent {label 'agent1'}
+			environment {
+				ENV = "Dev2"
+			}
+			steps {
+				echo "Build $env.ENV"
+				sleep 20
+				echo "Double Build $env.ENV"
+				sleep 20
 				echo "triple Build $env.ENV"
 				
 			}

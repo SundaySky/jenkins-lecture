@@ -1,5 +1,5 @@
 pipeline {
-	agent blue	
+	agent { label 'blue' }	
 	stages {
 		stage('Parallel build') {
 			parallel {

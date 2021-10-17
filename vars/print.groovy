@@ -1,5 +1,5 @@
 
-void printBuildEnv(env) {
+void buildEnv(env) {
     try {        
         echo "Building $env"        
     } catch (ex) {

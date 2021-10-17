@@ -1,9 +1,10 @@
 pipeline {
-	agent { label 'blue' }	
+	agent none
 	stages {
 		stage('Parallel build') {
 			parallel {
-				stage('Build Dev') {					
+				stage('Build Dev') {
+					agent { label 'blue' }	
 					environment {
 						ENV = "Dev"
 					}
@@ -12,7 +13,8 @@ pipeline {
 						sleep 10		
 					}
 				}
-				stage ('Build Production') {					
+				stage ('Build Production') {
+					agent { label 'blue' }	
 					environment {
 						ENV = "Production"
 					}					
